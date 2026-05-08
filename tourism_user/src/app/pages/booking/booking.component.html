@@ -1,0 +1,68 @@
+<div class="container mt-3 mb-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/packages" class="text-decoration-none">Packages</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Booking - {{this.package?.at(0).name}}</li>
+        </ol>
+    </nav>
+    <div class="row" *ngIf="status==true">
+        <div class="col-md-12">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>Booking Success</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="close()" aria-label="Close"></button>
+              </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <img src="http://localhost:5000/public/images/package/{{this.package?.at(0).image}}" class="w-100" alt="{{this.package?.at(0).image}}">
+                        </div>
+                        <div class="offset-1 col-md-6">
+                            <h6>Name - {{this.package?.at(0).name}}</h6>
+                            <p>Type - {{this.package?.at(0).type}}</p>
+                            <p>Location - {{this.package?.at(0).location}}</p>
+                            <p>Feature - {{this.package?.at(0).feature}}</p>
+                            <p>Description - {{this.package?.at(0).descp}}</p>
+                        </div>
+                    </div>
+                    <form [formGroup]="bookingForm" (ngSubmit)="saveData()">
+                        <div class="row input-group-sm">
+                            <div class="col-md-6 mb-3">
+                                <label>From Date</label>
+                                <input type="date" class="form-control" formControlName="fdate" >
+                                <div *ngIf="bookingForm.get('fdate')?.invalid && bookingForm.get('fdate')?.touched" class="text-danger">
+                                    <span *ngIf="bookingForm.get('fdate')?.errors?.['required']"> Please Pick a Date </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>To Date</label>
+                                <input type="date" class="form-control" formControlName="tdate" >
+                                <div *ngIf="bookingForm.get('tdate')?.invalid && bookingForm.get('tdate')?.touched" class="text-danger">
+                                    <span *ngIf="bookingForm.get('tdate')?.errors?.['required']"> Please Pick a Date </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label>Remarks</label>
+                                <textarea class="form-control" formControlName="remark"></textarea>
+                                <div *ngIf="bookingForm.get('remark')?.invalid && bookingForm.get('remark')?.touched" class="text-danger">
+                                    <span *ngIf="bookingForm.get('remark')?.errors?.['required']"> Please Enter Remarks </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3 d-flex justify-content-end">
+                                <input type="submit" class="btn btn-success btn-sm" value="BOOK NOW">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

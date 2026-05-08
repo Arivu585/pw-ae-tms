@@ -1,0 +1,23 @@
+<div class="container mt-3 mb-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">About</li>
+        </ol>
+    </nav>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <img src="http://localhost:5000/public/images/page/{{this.page?.at(0).image}}" class="w-100" alt="{{this.page?.at(0).image}}">
+                        </div>
+                        <div class="offset-1 col-md-6">
+                            <p>Description - {{this.page?.at(0).content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

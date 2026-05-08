@@ -1,0 +1,49 @@
+<div class="container mt-3 mb-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Enquiry</li>
+        </ol>
+    </nav>
+    <div class="row" *ngIf="status==true">
+        <div class="col-md-12">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <strong>Enquiry Sent</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="close()" aria-label="Close"></button>
+              </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-2 col-md-8">
+            <div class="card">
+                <div class="card-header text-center"><h3>ENQUIRY</h3></div>
+                <div class="card-body">
+                    <form [formGroup]="enquiryForm" (ngSubmit)="saveData()">
+                        <div class="row input-group-sm">
+                            <div class="col-md-12 mb-3">
+                                <label>Subject</label>
+                                <input type="text" class="form-control" formControlName="subject" >
+                                <div *ngIf="enquiryForm.get('subject')?.invalid && enquiryForm.get('subject')?.touched" class="text-danger">
+                                    <span *ngIf="enquiryForm.get('subject')?.errors?.['required']"> Please Enter Subject </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row input-group-sm">
+                            <div class="col-md-12 mb-3">
+                                <label>Content</label>
+                                <textarea class="form-control" formControlName="content"></textarea>
+                                <div *ngIf="enquiryForm.get('content')?.invalid && enquiryForm.get('content')?.touched" class="text-danger">
+                                    <span *ngIf="enquiryForm.get('content')?.errors?.['required']"> Please Enter Content </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3 d-flex justify-content-end">
+                                <input type="submit" class="btn btn-primary btn-sm" value="SEND">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

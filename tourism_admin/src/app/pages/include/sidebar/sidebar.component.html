@@ -1,0 +1,31 @@
+<div class="row">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="sidebar">
+            <ul class="list-unstyled">
+                <li class="nav-link"><a class="text-decoration-none" routerLink="/home" aria-current="page" ><i class="bx bx-home"></i> Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-bus"></i> Package</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" >
+                        <li><a class="dropdown-item" routerLink="/add_package">Add</a></li>
+                        <li><a class="dropdown-item" routerLink="/view_package">View</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link"><a class="text-decoration-none" routerLink="/view_user" aria-current="page" ><i class="bx bx-user"></i> View User</a></li>
+                <li class="nav-link"><a class="text-decoration-none" routerLink="/view_booking" aria-current="page" ><i class="bx bx-book"></i> View Booking</a></li>
+                <li class="nav-link"><a class="text-decoration-none" routerLink="/view_enquiry" aria-current="page" ><i class="bx bx-envelope"></i> View Enquiry</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-file"></i> User Pages</a>
+                    <ul class="dropdown-menu dropdown-menu-dark" >
+                        <li><a class="dropdown-item" routerLink="/add_user_pages">Add</a></li>
+                        <li><a class="dropdown-item" routerLink="/view_user_pages">View</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-link"><a class="text-decoration-none" routerLink="/change_password" aria-current="page" ><i class="bx bx-key"></i> Change Password</a></li> -->
+                <li class="nav-link"><a class="text-decoration-none text-danger" (click)="logout()" routerLink="" aria-current="page" ><i class='bx bx-log-out-circle'></i> Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

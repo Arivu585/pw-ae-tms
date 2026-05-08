@@ -1,0 +1,57 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="row" *ngIf="status==true">
+                <div class="col-md-12">
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>Register Success</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="close()" aria-label="Close"></button>
+                      </div>
+                </div>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="saveData()">
+                <div class="row mb-3">
+                    <div class="col text-center"><h4>REGISTER</h4></div>
+                </div>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="name">
+                        <div *ngIf="registerForm.get('mail')?.invalid && registerForm.get('name')?.touched" class="text-danger">
+                            <span *ngIf="registerForm.get('name')?.errors?.['required']"> Please Enter Name </span>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" formControlName="mail">
+                        <div *ngIf="registerForm.get('mail')?.invalid && registerForm.get('mail')?.touched" class="text-danger">
+                            <span *ngIf="registerForm.get('mail')?.errors?.['required']"> Please Enter Mail </span>
+                            <span *ngIf="registerForm.get('mail')?.errors?.['email']"> Please Enter Valid Mail </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label>Contact</label>
+                        <input type="number" class="form-control" formControlName="contact" (keypress)="numOnly($event)">
+                        <div *ngIf="registerForm.get('contact')?.invalid && registerForm.get('contact')?.touched" class="text-danger">
+                            <span *ngIf="registerForm.get('contact')?.errors?.['required']"> Please Enter Contact Number </span>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label>Password</label>
+                        <input type="password" class="form-control" formControlName="pass">
+                        <div *ngIf="registerForm.get('pass')?.invalid && registerForm.get('pass')?.touched" class="text-danger">
+                            <span *ngIf="registerForm.get('pass')?.errors?.['required']"> Please Enter Password </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">REGISTER</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

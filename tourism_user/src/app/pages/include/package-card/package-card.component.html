@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                <img src="http://localhost:5000/public/images/package/{{image}}" class="w-100" alt="{{image}}">
+            </div>
+            <div class="col-md-6">
+                <h6>Name - {{name}}</h6>
+                <p>Type - {{type}}</p>
+                <p>Location - {{location}}</p>
+                <p>Price - &#8377; {{price}} (per day)</p>
+            </div>
+            <div class="col-md-2 d-flex justify-content-center align-items-center">
+                <a [routerLink]="['/booking',pkid]" class="btn btn-success">VIEW</a>
+            </div>
+        </div>
+    </div>
+</div>

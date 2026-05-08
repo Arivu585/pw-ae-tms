@@ -1,0 +1,17 @@
+<div class="container mt-3 mb-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Packages</li>
+        </ol>
+    </nav>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h1 class="text-center text-primary text-uppercase mt-3 mb-3">Our Packages</h1>
+            <div class="row mb-3" *ngFor="let row of packages">
+                <div class="col-md-12">
+                    <app-package-card name="{{row.name}}" image="{{row.image}}" type="{{row.type}}" location="{{row.location}}" price="{{row.price}}" pkid="{{row.pkid}}"></app-package-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

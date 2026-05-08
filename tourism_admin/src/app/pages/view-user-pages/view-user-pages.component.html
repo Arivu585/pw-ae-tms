@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-10 mt-3 mb-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/home" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">View Pages</li>
+                </ol>
+            </nav>
+            <div class="row" *ngIf="status == true">
+                <div class="col-md-12">
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>Page Deleted</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="close()"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th>S.No</th>
+                                <th>Page Type</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of page;index as i">
+                                <td class="text-center">{{i+1}}</td>
+                                <td>{{row.type}}</td>
+                                <td class="text-center"><a [routerLink]="['/edit_user_pages',row.pgid]"
+                                        class="btn btn-info btn-sm"><i class="bx bx-edit"></i></a></td>
+                                <td class="text-center"><a [routerLink]="" (click)="remove(row.pgid,i)" class="btn btn-danger btn-sm"><i
+                                            class="bx bx-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

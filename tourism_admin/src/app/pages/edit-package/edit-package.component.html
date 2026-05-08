@@ -1,0 +1,112 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-10 mt-3 mb-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a routerLink="/home" class="text-decoration-none">Home</a></li>
+                  <li class="breadcrumb-item"><a routerLink="/view_package" class="text-decoration-none">View Package</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit Package</li>
+                </ol>
+            </nav>
+            <div class="row" *ngIf="status==true">
+                <div class="col-md-12">
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>Package Edited</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="close()" aria-label="Close"></button>
+                      </div>
+                </div>
+            </div>
+            <form [formGroup]="packageForm" (ngSubmit)="saveData()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Package Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+                            <div *ngIf="packageForm.get('name')?.invalid && packageForm.get('name')?.touched" class="text-danger">
+                                <span *ngIf="packageForm.get('name')?.errors?.['required']"> Please Enter Name </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Package Type</label>
+                            <input type="text" class="form-control" placeholder="Enter Type" formControlName="type">
+                            <div *ngIf="packageForm.get('type')?.invalid && packageForm.get('type')?.touched" class="text-danger">
+                                <span *ngIf="packageForm.get('type')?.errors?.['required']"> Please Enter Type </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Package Location</label>
+                            <input type="text" class="form-control" placeholder="Enter Location" formControlName="location">
+                            <div *ngIf="packageForm.get('location')?.invalid && packageForm.get('location')?.touched" class="text-danger">
+                                <span *ngIf="packageForm.get('location')?.errors?.['required']"> Please Enter Location </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Package Price</label>
+                            <input type="text" class="form-control" placeholder="Enter Price" formControlName="price" (keypress)="numOnly($event)">
+                            <div *ngIf="packageForm.get('price')?.invalid && packageForm.get('price')?.touched" class="text-danger">
+                                <span *ngIf="packageForm.get('price')?.errors?.['required']"> Please Enter Rate in Numbers </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Package Features</label>
+                            <input type="text" class="form-control" placeholder="Enter Features" formControlName="feature">
+                            <div *ngIf="packageForm.get('feature')?.invalid && packageForm.get('feature')?.touched" class="text-danger">
+                                <span *ngIf="packageForm.get('feature')?.errors?.['required']"> Please Enter Features </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Package Description</label>
+                            <textarea class="form-control image" placeholder="Enter Description" formControlName="descp"></textarea>
+                            <div *ngIf="packageForm.get('descp')?.invalid && packageForm.get('descp')?.touched" class="text-danger">
+                                <span *ngIf="packageForm.get('descp')?.errors?.['required']"> Please Enter Description </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div *ngIf="input == true" class="input-group-sm mb-3">
+                            <label>Package Image</label>
+                            <input (change)="onchange($event)" type="file" class="form-control" formControlName="image">
+                            <div *ngIf="packageForm.get('image')?.invalid && packageForm.get('image')?.touched" class="text-danger">
+                                <span *ngIf="packageForm.get('image')?.errors?.['required']"> Please Select Image </span>
+                            </div>
+                        </div>
+                        <div class="row mb-3 d-flex justify-content-center" *ngIf="commit == true">
+                            <div class="col-md-10">
+                                <img src="{{imageSrc}}" alt="" class="h200 img-fluid mt-3">
+                            </div>
+                        </div>
+                        <div class="row mb-3" *ngIf="commit == true">
+                            <div class="col-md-12 d-flex justify-content-end ">
+                                <button type="reset"  title="clear" (click)="clear()" class="btn btn-sm btn-danger">Clear Image</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="submit" class="btn btn-sm btn-success" value="EDIT PACKAGE">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

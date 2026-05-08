@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-10 mt-3 mb-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/home" class="text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">View Enquiries</li>
+                </ol>
+            </nav>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th>S.No</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Mail</th>
+                                <th>Subject</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of enquiry;index as i;">
+                                <td>{{i+1}}</td>
+                                <td>{{row.uname}}</td>
+                                <td>{{row.contact}}</td>
+                                <td>{{row.mail}}</td>
+                                <td>{{row.subject}}</td>
+                                <td>{{row.content}}</td>
+                                <td>{{row.date | date:'dd-MMM-yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

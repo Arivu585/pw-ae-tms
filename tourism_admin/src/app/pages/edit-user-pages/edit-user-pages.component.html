@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-10 mt-3 mb-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a routerLink="/home" class="text-decoration-none">Home</a></li>
+                  <li class="breadcrumb-item"><a routerLink="/view_user_pages" class="text-decoration-none">View Pages</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit Page - {{pageType}}</li>
+                </ol>
+            </nav>
+            <div class="row" *ngIf="status==true">
+                <div class="col-md-12">
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>Page Edited</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="close()" aria-label="Close"></button>
+                      </div>
+                </div>
+            </div>
+            <form [formGroup]="pageForm" (ngSubmit)="saveData()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Page Type</label>
+                            <input type="text" class="form-control" placeholder="Enter Type" formControlName="type">
+                            <div *ngIf="pageForm.get('type')?.invalid && pageForm.get('type')?.touched" class="text-danger">
+                                <span *ngIf="pageForm.get('type')?.errors?.['required']"> Please Enter Type </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group-sm mb-3">
+                            <label>Page Description</label>
+                            <textarea class="form-control image" placeholder="Enter Description" formControlName="content"></textarea>
+                            <div *ngIf="pageForm.get('content')?.invalid && pageForm.get('content')?.touched" class="text-danger">
+                                <span *ngIf="pageForm.get('content')?.errors?.['required']"> Please Enter Description </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div *ngIf="input == true" class="input-group-sm mb-3">
+                            <label>Page Image</label>
+                            <input (change)="onchange($event)" type="file" class="form-control" formControlName="image">
+                            <div *ngIf="pageForm.get('image')?.invalid && pageForm.get('image')?.touched" class="text-danger">
+                                <span *ngIf="pageForm.get('image')?.errors?.['required']"> Please Select Image </span>
+                            </div>
+                        </div>
+                        <div class="row mb-3 d-flex justify-content-center" *ngIf="commit == true">
+                            <div class="col-md-10">
+                                <img src="{{imageSrc}}" alt="" class="h200 img-fluid mt-3">
+                            </div>
+                        </div>
+                        <div class="row mb-3" *ngIf="commit == true">
+                            <div class="col-md-12 d-flex justify-content-end ">
+                                <button type="reset"  title="clear" (click)="clear()" class="btn btn-sm btn-danger">Clear Image</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="submit" class="btn btn-sm btn-success" value="EDIT PAGE">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
