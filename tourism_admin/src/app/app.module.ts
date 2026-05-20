@@ -16,42 +16,35 @@ import { ViewBookingsComponent } from './pages/view-bookings/view-bookings.compo
 import { ViewIssuesComponent } from './pages/view-issues/view-issues.component';
 import { ViewUserPagesComponent } from './pages/view-user-pages/view-user-pages.component';
 import { ViewEnquiriesComponent } from './pages/view-enquiries/view-enquiries.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AddUserPagesComponent } from './pages/add-user-pages/add-user-pages.component';
 import { EditUserPagesComponent } from './pages/edit-user-pages/edit-user-pages.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    SidebarComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    HomeComponent,
-    AddPackageComponent,
-    ViewPackageComponent,
-    EditPackageComponent,
-    ViewUsersComponent,
-    ViewBookingsComponent,
-    ViewIssuesComponent,
-    ViewUserPagesComponent,
-    ViewEnquiriesComponent,
-    AddUserPagesComponent,
-    EditUserPagesComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    ReactiveFormsModule,
-    RouterModule,
-    FormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        SidebarComponent,
+        HeaderComponent,
+        FooterComponent,
+        LoginComponent,
+        HomeComponent,
+        AddPackageComponent,
+        ViewPackageComponent,
+        EditPackageComponent,
+        ViewUsersComponent,
+        ViewBookingsComponent,
+        ViewIssuesComponent,
+        ViewUserPagesComponent,
+        ViewEnquiriesComponent,
+        AddUserPagesComponent,
+        EditUserPagesComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        CommonModule,
+        ReactiveFormsModule,
+        RouterModule,
+        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
