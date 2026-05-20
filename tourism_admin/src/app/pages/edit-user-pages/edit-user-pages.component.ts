@@ -4,9 +4,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-edit-user-pages',
-  templateUrl: './edit-user-pages.component.html',
-  styleUrl: './edit-user-pages.component.css'
+    selector: 'app-edit-user-pages',
+    templateUrl: './edit-user-pages.component.html',
+    styleUrl: './edit-user-pages.component.css',
+    standalone: false
 })
 export class EditUserPagesComponent implements OnInit {
 

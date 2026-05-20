@@ -3,9 +3,10 @@ import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-view-enquiries',
-  templateUrl: './view-enquiries.component.html',
-  styleUrl: './view-enquiries.component.css'
+    selector: 'app-view-enquiries',
+    templateUrl: './view-enquiries.component.html',
+    styleUrl: './view-enquiries.component.css',
+    standalone: false
 })
 export class ViewEnquiriesComponent implements OnInit {
 

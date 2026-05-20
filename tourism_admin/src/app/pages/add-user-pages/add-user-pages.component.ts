@@ -4,9 +4,10 @@ import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-user-pages',
-  templateUrl: './add-user-pages.component.html',
-  styleUrl: './add-user-pages.component.css'
+    selector: 'app-add-user-pages',
+    templateUrl: './add-user-pages.component.html',
+    styleUrl: './add-user-pages.component.css',
+    standalone: false
 })
 export class AddUserPagesComponent implements OnInit {
 

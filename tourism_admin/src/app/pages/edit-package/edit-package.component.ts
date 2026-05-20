@@ -4,9 +4,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-edit-package',
-  templateUrl: './edit-package.component.html',
-  styleUrl: './edit-package.component.css'
+    selector: 'app-edit-package',
+    templateUrl: './edit-package.component.html',
+    styleUrl: './edit-package.component.css',
+    standalone: false
 })
 export class EditPackageComponent implements OnInit {
 

@@ -3,9 +3,10 @@ import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-view-bookings',
-  templateUrl: './view-bookings.component.html',
-  styleUrl: './view-bookings.component.css'
+    selector: 'app-view-bookings',
+    templateUrl: './view-bookings.component.html',
+    styleUrl: './view-bookings.component.css',
+    standalone: false
 })
 export class ViewBookingsComponent implements OnInit {
 [x: string]: any;

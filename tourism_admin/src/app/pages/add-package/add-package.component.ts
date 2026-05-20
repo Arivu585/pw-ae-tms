@@ -4,9 +4,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-package',
-  templateUrl: './add-package.component.html',
-  styleUrl: './add-package.component.css'
+    selector: 'app-add-package',
+    templateUrl: './add-package.component.html',
+    styleUrl: './add-package.component.css',
+    standalone: false
 })
 export class AddPackageComponent implements OnInit {
 

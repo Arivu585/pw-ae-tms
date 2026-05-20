@@ -3,9 +3,10 @@ import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-view-users',
-  templateUrl: './view-users.component.html',
-  styleUrl: './view-users.component.css'
+    selector: 'app-view-users',
+    templateUrl: './view-users.component.html',
+    styleUrl: './view-users.component.css',
+    standalone: false
 })
 export class ViewUsersComponent implements OnInit {
 
