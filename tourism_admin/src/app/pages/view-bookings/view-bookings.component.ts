@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ChangeDetectorRef} from '@angular/core';
 import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ViewBookingsComponent implements OnInit {
 [x: string]: any;
 
-  constructor(private obj: CommonService, private router: Router) { }
+  constructor(private obj: CommonService, private cdr: ChangeDetectorRef, private router: Router) { }
   booking:any;
 
   ngOnInit(): void {
@@ -21,6 +21,7 @@ export class ViewBookingsComponent implements OnInit {
 
     this.obj.bookingAll().subscribe((res)=>{
       this.booking=res["data"];
+      this.cdr.detectChanges();
     });
   }
 

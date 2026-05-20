@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from '../../common.service';
 
@@ -10,7 +10,7 @@ import { CommonService } from '../../common.service';
 })
 export class ViewUserPagesComponent implements OnInit{
 
-  constructor(private obj:CommonService,private router:Router){}
+  constructor(private obj:CommonService,private cdr:ChangeDetectorRef , private router:Router){}
 
   page:string|any;
   ngOnInit(): void {
@@ -20,6 +20,7 @@ export class ViewUserPagesComponent implements OnInit{
 
     this.obj.pageAll().subscribe((res)=>{
       this.page=res["data"];
+      this.cdr.detectChanges();
     })
   }
 

@@ -28,13 +28,13 @@
                         <tbody>
                             <tr *ngFor="let row of booking;index as i;">
                                 <td class="text-center">{{i+1}}</td>
-                                <td>{{row.uname}}</td>
-                                <td>{{row.contact}}</td>
-                                <td>{{row.mail}}</td>
-                                <td>{{row.name}}</td>
-                                <td>{{row.fdate | date:'dd-MMM-yyyy' }}</td>
-                                <td>{{row.tdate | date:'dd-MMM-yyyy' }}</td>
-                                <td>{{row.remarks}}</td>
+                                <td>{{row?.uname}}</td>
+                                <td>{{row?.contact}}</td>
+                                <td>{{row?.mail}}</td>
+                                <td>{{row?.name}}</td>
+                                <td>{{row?.fdate | date:'dd-MMM-yyyy' }}</td>
+                                <td>{{row?.tdate | date:'dd-MMM-yyyy' }}</td>
+                                <td>{{row?.remarks}}</td>
                             </tr>
                         </tbody>
                     </table>

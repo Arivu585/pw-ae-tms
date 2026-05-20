@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ViewUsersComponent implements OnInit {
 
-  constructor(private obj: CommonService, private router: Router) { }
+  constructor(private obj: CommonService,private cdr: ChangeDetectorRef, private router: Router) { }
   user:any;
   ngOnInit(): void { 
     if (localStorage.getItem("token") == null) {
@@ -19,6 +19,7 @@ export class ViewUsersComponent implements OnInit {
 
     this.obj.userAll().subscribe((res)=>{
       this.user=res["data"];
+      this.cdr.detectChanges();
     });
   }
 
