@@ -8,6 +8,7 @@ import { PackagesComponent } from './pages/packages/packages.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { EnquiryComponent } from './pages/enquiry/enquiry.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { IMAGE_CONFIG } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -51,6 +52,14 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],providers: [
+  {
+    provide: IMAGE_CONFIG,
+    useValue: {
+      disableImageSizeWarning: true,
+      disableImageLazyLoadWarning: true
+    }
+  },
+],
 })
 export class AppRoutingModule { }

@@ -16,34 +16,27 @@ import { FooterComponent } from './pages/include/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { PackageCardComponent } from './pages/include/package-card/package-card.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    RegisterComponent,
-    LoginComponent,
-    PackagesComponent,
-    EnquiryComponent,
-    AboutComponent,
-    ContactUsComponent,
-    BookingComponent,
-    HeaderComponent,
-    FooterComponent,
-    PackageCardComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    RouterModule,
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        RegisterComponent,
+        LoginComponent,
+        PackagesComponent,
+        EnquiryComponent,
+        AboutComponent,
+        ContactUsComponent,
+        BookingComponent,
+        HeaderComponent,
+        FooterComponent,
+        PackageCardComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        RouterModule,
+        CommonModule,
+        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
