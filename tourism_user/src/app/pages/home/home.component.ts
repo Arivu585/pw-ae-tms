@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
 
-  constructor(private obj:CommonService,private router:Router){}
+  constructor(private obj:CommonService, private  cdr : ChangeDetectorRef,  private router:Router){}
 
   packages:any;
   ngOnInit(): void {
@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit{
     let limit=3;
     this.obj.packageLimit(limit).subscribe((res)=>{
       this.packages=res["data"];
+      this.cdr.detectChanges();
     })
   }
 }

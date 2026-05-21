@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ContactUsComponent implements OnInit{
 
-  constructor(private obj:CommonService,private router:Router){}
+  constructor(private obj:CommonService,private router:Router, private cdr : ChangeDetectorRef){}
 
   page:any;
   ngOnInit(): void {
@@ -21,11 +21,10 @@ export class ContactUsComponent implements OnInit{
     let type="contact";
     this.obj.pageType(type).subscribe((res)=>{
       this.page=res["data"];
+      this.cdr.detectChanges();
       if(this.page == null){
         this.router.navigate(["/home"]);
       }
     });
-
-    
   }
 }

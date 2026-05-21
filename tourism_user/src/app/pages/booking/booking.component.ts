@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '../../common.service';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class BookingComponent implements OnInit{
 
-  constructor(private route:ActivatedRoute,private obj:CommonService,private router:Router,private fb:FormBuilder){}
+  constructor(private route:ActivatedRoute, private cdr : ChangeDetectorRef,private obj:CommonService,private router:Router,private fb:FormBuilder){}
 
   pkid:any;
   package:any;
@@ -26,6 +26,7 @@ export class BookingComponent implements OnInit{
 
     this.obj.packageSingle(this.pkid).subscribe((res)=>{
       this.package=res["data"];
+      this.cdr.detectChanges();
     });
   }
 
