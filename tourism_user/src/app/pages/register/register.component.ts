@@ -5,9 +5,10 @@ import { NavService } from '../../nav.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.css',
+    standalone: false
 })
 export class RegisterComponent implements OnInit{
   constructor(private fb:FormBuilder, private obj:CommonService, private nav:NavService, private router:Router){}

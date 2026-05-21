@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-package-card',
-  templateUrl: './package-card.component.html',
-  styleUrl: './package-card.component.css'
+    selector: 'app-package-card',
+    templateUrl: './package-card.component.html',
+    styleUrl: './package-card.component.css',
+    standalone: false
 })
 export class PackageCardComponent {
   @Input() name:any = "";

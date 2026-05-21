@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { CommonService } from '../../common.service';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+    selector: 'app-about',
+    templateUrl: './about.component.html',
+    styleUrl: './about.component.css',
+    standalone: false
 })
 export class AboutComponent implements OnInit{
 

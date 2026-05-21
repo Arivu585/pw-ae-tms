@@ -4,9 +4,10 @@ import { CommonService } from '../../common.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-booking',
-  templateUrl: './booking.component.html',
-  styleUrl: './booking.component.css'
+    selector: 'app-booking',
+    templateUrl: './booking.component.html',
+    styleUrl: './booking.component.css',
+    standalone: false
 })
 export class BookingComponent implements OnInit{
 

@@ -5,9 +5,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'app-enquiry',
-  templateUrl: './enquiry.component.html',
-  styleUrl: './enquiry.component.css'
+    selector: 'app-enquiry',
+    templateUrl: './enquiry.component.html',
+    styleUrl: './enquiry.component.css',
+    standalone: false
 })
 export class EnquiryComponent implements OnInit{
 

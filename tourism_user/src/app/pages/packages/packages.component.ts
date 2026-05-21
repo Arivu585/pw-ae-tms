@@ -3,9 +3,10 @@ import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-packages',
-  templateUrl: './packages.component.html',
-  styleUrl: './packages.component.css'
+    selector: 'app-packages',
+    templateUrl: './packages.component.html',
+    styleUrl: './packages.component.css',
+    standalone: false
 })
 export class PackagesComponent implements OnInit{
 

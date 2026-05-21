@@ -3,9 +3,10 @@ import { CommonService } from '../../common.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-contact-us',
-  templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.css'
+    selector: 'app-contact-us',
+    templateUrl: './contact-us.component.html',
+    styleUrl: './contact-us.component.css',
+    standalone: false
 })
 export class ContactUsComponent implements OnInit{
 
